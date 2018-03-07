@@ -50,7 +50,7 @@ const app = express();
 // This option tells express to use /assets in a URL path as a static mirror to our client folder
 // Any requests to /assets will map to the client folder to find a file
 // For example going to /assets/img/favicon.png would return the favicon image
-app.use('/assets', express.static(path.resolve(`${__dirname}/../client/`)));
+app.use('/assets', express.static(path.resolve(`${__dirname}/../hosted/`)));
 
 // Call compression and tell the app to use it
 app.use(compression());
@@ -75,7 +75,7 @@ app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);
 
 // call favicon with the favicon path and tell the app to use it
-app.use(favicon(`${__dirname}/../client/img/favicon.png`));
+app.use(favicon(`${__dirname}/../hosted/img/favicon.png`));
 
 // call the cookie parser library and tell express to use it
 app.use(cookieParser());
